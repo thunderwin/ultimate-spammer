@@ -14,7 +14,7 @@
 
 1) Skype uploading text
 
-2) Skype automated typing ''' + autoguipopup + '''
+2) Skype automated typing 
 
 3) Clear skype chat
 
@@ -22,7 +22,7 @@
 
 5) Email spammer
 
-6) Generic spammer ''' + autoguipopup + '''
+6) Generic spammer
 
 99) Quit
 ```
