@@ -1,0 +1,6 @@
+setuptools==24.3.0
+requests==2.9.1
+selenium==2.53.6
+Skype4Py==1.0.35
+Pillow==3.3.1
+PyAutoGUI==0.9.33
