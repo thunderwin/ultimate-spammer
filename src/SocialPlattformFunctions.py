@@ -19,8 +19,8 @@ __author__ = 'Qubasa'
 
 def BuildBrowserProfile():
     try:
-        profile = webdriver.FirefoxProfile('firefox-profile')
-        driver = webdriver.Firefox(firefox_profile=profile)
+        # profile = webdriver.FirefoxProfile('firefox-profile')
+        driver = webdriver.Firefox()
     except IOError:
         driver = webdriver.Firefox()
 
