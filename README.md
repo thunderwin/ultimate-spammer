@@ -1,5 +1,5 @@
 ```
-[+] ULTIMATE SPAMMER 2.0 [+]
+ [*] ULTIMATE SPAMMER 2.0 [*]
 
             .-------.
       _|~~ ~~  |_
@@ -10,29 +10,21 @@
       `"""""""""`
 
     Creator: Qubasa
-
 -------------------------------
+
 1) Skype uploading text
 
-2) Skype automated typing 
+2) Skype automated typing ''' + autoguipopup + '''
 
 3) Clear skype chat
 
-4) Get Ip of skype friend
+4) WhatsApp web automated typing
 
-5) WhatsApp web automated typing
+5) Email spammer
 
-6) Facebook automated typing
+6) Generic spammer ''' + autoguipopup + '''
 
-7) Email spammer
-
-8) Generic spammer 
-
-9) Update
-
-10) Quit
-    
->> 
+99) Quit
 ```
 
 # Description

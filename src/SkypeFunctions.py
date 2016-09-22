@@ -31,16 +31,6 @@ def GetFriends():
 
     return friendlist
 
-
-def GetIp(rawSkypeName):
-    response = requests.get('http://api.hanzresolver.com/api.php?username=' + rawSkypeName + '&free')
-    if response.status_code is requests.codes.ok and response.text.split()[0].encode("ascii") != "Error:":
-        ipAddress = response.text.split()[0].encode("ascii")
-        return ipAddress
-    else:
-        return response.text.encode("ascii")
-
-
 def ClearChat():
         skype.ClearChatHistory()
         skype.Client.Shutdown()

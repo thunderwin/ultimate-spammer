@@ -72,19 +72,13 @@ def MainMenu():
 
 3) Clear skype chat
 
-4) Get Ip of skype friend
+4) WhatsApp web automated typing
 
-5) WhatsApp web automated typing
+5) Email spammer
 
-6) Facebook automated typing
+6) Generic spammer ''' + autoguipopup + '''
 
-7) Email spammer
-
-8) Generic spammer ''' + autoguipopup + '''
-
-9) Update
-
-10) Quit
+99) Quit
     '''
 
     try:
@@ -94,53 +88,6 @@ def MainMenu():
     except KeyboardInterrupt:
         os.system(clearCommand)
         DoExitMenu()
-
-
-def GetIpAddress():
-
-    try:
-        # Start Skype and print the friendlist
-        InitSkype()
-        friendlist = GetFriends()
-        FriendMenu(friendlist)
-
-        # Get user input
-        while True:
-            try:
-                print 'Target number:'
-                target = raw_input('>> ')
-                target = int(target)
-                print
-
-                break
-
-            except ValueError:
-                print
-                print '[-] Invalid input please try again!'
-                print
-
-        # If private username is not given choose the public one
-        if friendlist[target][2] == '':
-            x = 0
-        else:
-            x = 2
-
-        # Request the target IP from the Website API
-        print "The IP of " + friendlist[target][x] + " is: " + GetIp(friendlist[target][0])
-
-    # EXCEPTION HANDLING -------------------------------------------------------------------
-    except Skype4Py.SkypeError:
-        print "[-] Skype raised an unexpected problem, please try again."
-
-    except Skype4Py.SkypeAPIError:
-        print "[-] Connection issues with skype. Is this programm whitelisted ?"
-
-    except Exception as er:
-        print "[-] An unexpected error was raised: " + str(er)
-
-    finally:
-        raw_input("Press any key to continue...")
-        menu_actions['main_menu']()
 
 
 def UploadTextMenu():
@@ -695,13 +642,10 @@ menu_actions = {
     '1': UploadTextMenu,
     '2': AutoTypeTextMenu,
     '3': ClearChatMenu,
-    '4': GetIpAddress,
-    '5': WhatsAppSpammerMenu,
-    '6': FacebookSpammerMenu,
-    '7': EmailSpammerMenu,
-    '8': GenericSpammerMenu,
-    '9': UpdateMenu,
-    '10': DoExitMenu,
+    '4': WhatsAppSpammerMenu,
+    '5': EmailSpammerMenu,
+    '6': GenericSpammerMenu,
+    '99': DoExitMenu,
 }
 
 # Display main menu if file gets executed
