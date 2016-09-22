@@ -1,3 +1,4 @@
+```
 [+] ULTIMATE SPAMMER 2.0 [+]
 
             .-------.
@@ -11,27 +12,49 @@
     Creator: Qubasa
 
 -------------------------------
+1) Skype uploading text
+
+2) Skype automated typing 
+
+3) Clear skype chat
+
+4) Get Ip of skype friend
+
+5) WhatsApp web automated typing
+
+6) Facebook automated typing
+
+7) Email spammer
+
+8) Generic spammer 
+
+9) Update
+
+10) Quit
+    
+>> 
+```
 
 # Description
 A spammer written in Python 2.7 for Whatsapp, Skype, Facebook and Email and pretty much every other chat forum.
 It has an easy to use terminal GUI and a feature to get the ip of your skype friends.
 Also there is an update function you can call to get updates directly from github!
 
-
 # Required pip Modules
-setuptools==24.3.0
-requests==2.9.1
-selenium==2.53.6
-Skype4Py==1.0.35
+- setuptools==24.3.0
+- requests==2.9.1
+- selenium==2.53.6
+- Skype4Py==1.0.35
+
 
 # Optional pip Modules
-Pillow==3.3.1
-PyAutoGUI==0.9.33
+- Pillow==3.3.1
+- PyAutoGUI==0.9.33
 
 
 # Required Programs
-Skype,
-Firefox
+- Skype
+- Firefox
 
 
 # Pyautogui Dependencies
@@ -43,12 +66,17 @@ Linux needs the python-Xlib and python-tk module installed.
 Note: python-tk has to be installed through apt-get not through pip
 
 # How to install automatically
-Open the cmd/terminal and run the installer.py:
+Open the cmd/terminal and run the requirements.txt:
 
-Windows: C:\Python27\pip.exe -r requirements.txt
+Windows: 
+```
+C:\Python27\scripts\pip.exe -r requirements.txt
+```
 
-OSX/Linux: sudo pip -r requirements.txt
-
+OSX/Linux: 
+```
+sudo pip -r requirements.txt
+```
 
 # How to manually install Python modules ?
 1) Download ez_setup.py: https://pypi.python.org/pypi/setuptools
