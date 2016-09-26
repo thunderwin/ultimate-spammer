@@ -12,13 +12,13 @@
     Creator: Qubasa
 -------------------------------
 
-1) Skype automated typing ''' + autoguipopup + '''
+1) Skype automated typing 
 
 2) Clear your skype chat
 
 3) Email spammer
 
-4) Generic spammer ''' + autoguipopup + '''
+4) Generic spammer
 
 99) Quit
 ```
