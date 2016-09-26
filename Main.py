@@ -249,6 +249,7 @@ def FriendMenu(friendlist):
         print
 
 def EmailSpammerMenu():
+    choice = 0
 
     # server_dictionary[index][name][dnsname][port]
     server_dictionary = {
@@ -337,7 +338,11 @@ def EmailSpammerMenu():
 
     # EXCEPTION HANDLING -------------------------------------------------------------------
     except smtplib.SMTPAuthenticationError:
-        print "[-] Log in credentials are wrong."
+        if server_dictionary[choice][0] == "Gmail":
+            print "In Gmail you have to whitelist apps connecting to your account:"
+            print "https://www.google.com/settings/security/lesssecureapps"
+        else:
+            print "[-] Log in credentials are wrong or your email security settings are kicking in."
 
     except smtplib.SMTPConnectError:
         print "[-] Couldn't connect to server."
