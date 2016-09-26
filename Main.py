@@ -15,10 +15,17 @@ except ImportError:
     raw_input("Press any key to continue...")
 
 try:
+    import readline
+
+    # Add directory auto completion
+    readline.parse_and_bind("tab: complete")
+except ImportError as error:
+    pass
+
+try:
     import sys
     import os
     import time
-    import readline
 
     from src.EmailFunctions import *
     from src.SkypeFunctions import *
@@ -35,9 +42,6 @@ if sys.platform.startswith('win'):
     clearCommand = 'cls'
 else:
     clearCommand = 'clear'
-
-# Add directory auto completion
-readline.parse_and_bind("tab: complete")
 
 # Check if variable is empty
 def Empty(value):
