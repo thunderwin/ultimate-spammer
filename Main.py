@@ -20,9 +20,7 @@ try:
     import time
     import readline
 
-    from src.GitConnect import *
     from src.EmailFunctions import *
-    from src.SocialPlattformFunctions import *
     from src.SkypeFunctions import *
 
 except ImportError as error:
@@ -66,17 +64,13 @@ def MainMenu():
     Creator: Qubasa
 -------------------------------
 
-1) Skype uploading text
+1) Skype automated typing ''' + autoguipopup + '''
 
-2) Skype automated typing ''' + autoguipopup + '''
+2) Clear your skype chat
 
-3) Clear skype chat
+3) Email spammer
 
-4) WhatsApp web automated typing
-
-5) Email spammer
-
-6) Generic spammer ''' + autoguipopup + '''
+4) Generic spammer ''' + autoguipopup + '''
 
 99) Quit
     '''
@@ -88,60 +82,6 @@ def MainMenu():
     except KeyboardInterrupt:
         os.system(clearCommand)
         DoExitMenu()
-
-
-def UploadTextMenu():
-
-    try:
-        # Start Skype and print the friendlist
-        InitSkype()
-        friendlist = GetFriends()
-        FriendMenu(friendlist)
-
-        # Get user input
-        while True:
-            try:
-                print 'Target number:'
-                target = raw_input('>> ')
-                target = int(target)
-
-                print 'Your message to deliver:'
-                msg = raw_input('>> ')
-                Empty(msg)
-
-                print 'How many times: '
-                quantity = raw_input('>> ')
-                quantity = int(quantity)
-                print
-
-                break
-
-            except ValueError:
-                print
-                print '[-] Invalid input please try again!'
-                print
-
-        # Execute the spam function
-        UploadText(friendlist, target, msg, quantity)
-        print "[+] Successfully send " + str(quantity) + " messages!"
-
-    # EXCEPTION HANDLING -------------------------------------------------------------------
-    except Skype4Py.SkypeError:
-        print "[-] Skype raised an unexpected problem, please try again."
-
-    except Skype4Py.SkypeAPIError:
-        print "[-] Connection issues with skype. Is this program whitelisted ?"
-
-    except KeyboardInterrupt:
-        print "[+] Aborted program."
-
-    except Exception as er:
-        print "[-] An unexpected error was raised: " + str(er)
-
-    finally:
-        raw_input("Press any key to continue...")
-        menu_actions['main_menu']()
-
 
 def AutoTypeTextMenu():
 
@@ -307,113 +247,6 @@ def FriendMenu(friendlist):
             x = 2
         print str(index) + ') ' + friendlist[index][x] + ' : ' + friendlist[index][1]
         print
-
-
-def WhatsAppSpammerMenu():
-
-    try:
-        # Get user input
-        while True:
-            try:
-                print 'Target name:'
-                target = raw_input('>> ')
-                Empty(target)
-
-                print 'Your message to deliver:'
-                msg = raw_input('>> ')
-                Empty(msg)
-
-                print 'How many times: '
-                quantity = raw_input('>> ')
-                quantity = int(quantity)
-                print
-
-                break
-
-            except ValueError:
-                print
-                print '[-] Invalid input please try again!'
-                print
-
-        # Execute spam function
-        WhatsAppSpammer(target, msg, quantity)
-        print '[+] Sucessfully send ' + str(quantity) + " messages to " + target + "."
-
-    # EXCEPTION HANDLING -------------------------------------------------------------------
-    except TimeoutException:
-        print '[-] Timout error: Something took too long.'
-
-    except KeyboardInterrupt:
-        print '[+] Aborted program.'
-
-    except NoSuchElementException:
-        print '[-] An element id is missing or has been changed.'
-
-    except IndexError:
-        print '[-] Wrong target name / Please chat with the target least once.'
-
-    except Exception as er:
-        print "[-] An unexpected error was raised: " + str(er)
-
-    finally:
-        raw_input("Press any key to continue...")
-        menu_actions['main_menu']()
-
-
-def FacebookSpammerMenu():
-
-    try:
-        # Get user input
-        while True:
-            try:
-                print 'Your Email:'
-                email = raw_input('>> ')
-                Empty(email)
-
-                print 'Your Password'
-                password = raw_input('>> ')
-                Empty(password)
-
-                print 'Target name:'
-                target = raw_input('>> ')
-                Empty(target)
-
-                print 'Your message to deliver:'
-                msg = raw_input('>> ')
-                Empty(msg)
-
-                print 'How many times: '
-                quantity = raw_input('>> ')
-                quantity = int(quantity)
-                print
-                break
-
-            except ValueError:
-                print
-                print '[-] Invalid input please try again!'
-                print
-
-        # Execute spam function
-        FacebookSpammer(email, password, target, msg, quantity)
-        print '[+] Sucessfully send ' + str(quantity) + " messages to " + target + "."
-
-    # EXCEPTION HANDLING -------------------------------------------------------------------
-    except TimeoutException:
-        print '[-] Timeout error: Something took too long.'
-
-    except KeyboardInterrupt:
-        print '[+] Aborted program.'
-
-    except NoSuchElementException:
-        print '[-] An element id is missing or has been changed.'
-
-    except Exception as er:
-        print "[-] An unexpected error was raised: " + str(er)
-
-    finally:
-        raw_input("Press any key to continue...")
-        menu_actions['main_menu']()
-
 
 def EmailSpammerMenu():
 
@@ -592,59 +425,13 @@ def GenericSpammerMenu():
         raw_input("Press any key to continue...")
         menu_actions['main_menu']()
 
-
-def UpdateMenu():
-
-    try:
-        print "Checking for updates..."
-        print
-
-        # Required infos
-        downloadlink = 'https://raw.githubusercontent.com/Qubasa/ultimate-spammer/master/'
-        repolink = 'https://api.github.com/repos/Qubasa/ultimate-spammer/contents/'
-        allowedfiles = ['py', 'md']
-
-        # Get dir path
-        rootpath = os.path.dirname(os.path.abspath(__file__))
-        srcpath = os.path.join(rootpath, "src")
-
-        # List files in dir
-        rootfiles = GetFilesInDir(rootpath, allowedfiles)
-        srcfiles = GetFilesInDir(srcpath, allowedfiles)
-
-        # Arguments: dirpath, files, shalink, downloadlink, savesfile, relativepath="", applypatch=True
-        allrootfiles = PullRepo(rootpath, rootfiles, repolink, downloadlink, "rootChecksum.txt")
-        allsrcfiles = PullRepo(srcpath, srcfiles, repolink, downloadlink, "srcChecksum.txt", "src/")
-
-        for updatedfile in allrootfiles[1]:
-            print "[+] Updated: " + updatedfile
-
-        for updatedfile in allsrcfiles[1]:
-            print "[+] Updated: " + updatedfile
-
-        if len(allrootfiles[1]) <= 0 and len(allsrcfiles[1]) <= 0:
-            print "[+] No updates available."
-
-    # EXCEPTION HANDLING -------------------------------------------------------------------
-    except KeyError as er:
-        print er
-
-    except Exception as er:
-        print "[-] An unexpected error was raised: " + str(er)
-
-    finally:
-        raw_input("Press any key to continue...")
-        menu_actions['main_menu']()
-
 # Dictionary of menu entrys
 menu_actions = {
     'main_menu': MainMenu,
-    '1': UploadTextMenu,
-    '2': AutoTypeTextMenu,
-    '3': ClearChatMenu,
-    '4': WhatsAppSpammerMenu,
-    '5': EmailSpammerMenu,
-    '6': GenericSpammerMenu,
+    '1': AutoTypeTextMenu,
+    '2': ClearChatMenu,
+    '3': EmailSpammerMenu,
+    '4': GenericSpammerMenu,
     '99': DoExitMenu,
 }
 

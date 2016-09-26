@@ -12,30 +12,23 @@
     Creator: Qubasa
 -------------------------------
 
-1) Skype uploading text
+1) Skype automated typing ''' + autoguipopup + '''
 
-2) Skype automated typing 
+2) Clear your skype chat
 
-3) Clear skype chat
+3) Email spammer
 
-4) WhatsApp web automated typing
-
-5) Email spammer
-
-6) Generic spammer
+4) Generic spammer ''' + autoguipopup + '''
 
 99) Quit
 ```
 
 # Description
 A spammer written in Python 2.7 for Whatsapp, Skype, Facebook and Email and pretty much every other chat forum.
-It has an easy to use terminal GUI and a feature to get the ip of your skype friends.
-Also there is an update function you can call to get updates directly from github!
+It has an easy to use terminal GUI.
 
 # Required pip Modules
 - setuptools==24.3.0
-- requests==2.9.1
-- selenium==2.53.6
 - Skype4Py==1.0.35
 
 
@@ -46,7 +39,6 @@ Also there is an update function you can call to get updates directly from githu
 
 # Required Programs
 - Skype
-- Firefox
 
 
 # Pyautogui Dependencies

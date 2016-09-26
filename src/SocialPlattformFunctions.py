@@ -18,17 +18,13 @@ __author__ = 'Qubasa'
 
 
 def BuildBrowserProfile():
-    try:
-        # profile = webdriver.FirefoxProfile('firefox-profile')
-        driver = webdriver.Firefox()
-    except IOError:
-        driver = webdriver.Firefox()
-
+    # profile = webdriver.FirefoxProfile('firefox-profile')
+    driver = webdriver.Firefox()
     return driver
 
 
 def WhatsAppSpammer(target, msg, quantity, browserSession=None):
-    try:
+
         # Global settings
         if browserSession is None:
             browser = BuildBrowserProfile()
@@ -46,6 +42,7 @@ def WhatsAppSpammer(target, msg, quantity, browserSession=None):
 
         # Select target in chat List
         spamming_target = browser.find_elements_by_xpath("//*[contains(text(), '%s')]" % target)
+        browser.implicitly_wait(2)
         spamming_target[0].click()
         time.sleep(1)
 
@@ -59,9 +56,6 @@ def WhatsAppSpammer(target, msg, quantity, browserSession=None):
 
         browser.close()
 
-    except (WebDriverException, KeyboardInterrupt, IndexError) as error:
-        browser.close()
-        raise error
 
 
 def FacebookSpammer(email, password, target, msg, quantity, browserSession=None):
