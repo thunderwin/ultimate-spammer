@@ -27,20 +27,6 @@
 A spammer written in Python 2.7 for Whatsapp, Skype, Facebook and Email and pretty much every other chat forum.
 It has an easy to use terminal GUI.
 
-# Required pip Modules
-- setuptools==24.3.0
-- Skype4Py==1.0.35
-
-
-# Optional pip Modules
-- Pillow==3.3.1
-- PyAutoGUI==0.9.33
-
-
-# Required Programs
-- Skype
-
-
 # Pyautogui Dependencies
 Windows has no dependencies. The Win32 extensions do not need to be installed.
 
@@ -54,12 +40,17 @@ Open the cmd/terminal and run the requirements.txt:
 
 Windows: 
 ```
-C:\Python27\scripts\pip.exe -r requirements.txt
+C:\Python27\Scripts\pip.exe install -r windows-requirements.txt
 ```
 
-OSX/Linux: 
+Linux: 
 ```
-sudo pip -r requirements.txt
+sudo pip install -r linux-requirements.txt
+```
+
+Mac-OSX:
+```
+sudo pip install -r mac-requirements.txt
 ```
 
 # How to manually install Python modules ?
